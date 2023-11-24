@@ -1,0 +1,5 @@
+*.parquet
+*.csv
+/my_taxi_postgres_data
+
+.idea
