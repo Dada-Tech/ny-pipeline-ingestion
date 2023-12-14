@@ -4,6 +4,8 @@ Data Ingestion Pipeline for New York City Data | Preprocessed and Deployed to Do
 [View Pipeline](https://github.com/Dada-Tech/ny-pipeline-ingestion/blob/main/ingest_data.py)  
 [View Notebook](https://github.com/Dada-Tech/ny-pipeline-ingestion/blob/main/psql-workbench.ipynb)
 
+![banner](pipeline-banner.png)  
+
 ## Description
 Automated ML saves countless hours of debugging, and prevents tedious work that need not be repeated.
 This project is a data ingestion pipeline that takes open city data, preprocesses it and puts it ingests it into a data warehouse.
