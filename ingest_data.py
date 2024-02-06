@@ -19,12 +19,14 @@ def main(params):
     url = params.url
     is_parquet = params.parquet
 
-    data_filename = f'output.{"parquet" if is_parquet else "csv"}'
-
     batch_size = 100000
 
-    # download csv
-    os.system(f'wget {url} -O {data_filename} --no-check-certificate')
+    data_filename = f'output.{"parquet" if is_parquet else "csv"}'
+
+    # if no url specified, assume local file
+    if len(url) == 0:
+        # download csv
+        os.system(f'wget {url} -O {data_filename} --no-check-certificate')
 
     # SQL Alchemy
     engine = create_engine(f'postgresql://{user}:{password}@{host}:{port}/{db}')
@@ -142,7 +144,7 @@ if __name__ == '__main__':
     parser.add_argument('--port', type=int, help='port for postgres')
     parser.add_argument('--db', help='database name for postgres')
     parser.add_argument('--table_name', help='table name for postgres')
-    parser.add_argument('--url', help='url of the data file')
+    parser.add_argument('--url', nargs='?', help='url of the data file')
     parser.add_argument('--parquet', type=bool, nargs='?', const=True,
                         default=True,
                         help='if the data file is parquet')
